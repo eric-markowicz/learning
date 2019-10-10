@@ -6,7 +6,7 @@
         <q-btn
           :color="enableBluetooth ? 'primary' : 'grey-6'"
           icon="bluetooth"
-          label="Test Blueetooth"
+          label="Test Bluetooth"
           class="full-width"
           size="lg"
           @click="bluetooth()"
@@ -24,7 +24,7 @@ export default {
   name: 'PageIndex',
   data () {
     return {
-      enableBluetooth: true
+      enableBluetooth: false
     }
   },
   mounted () {
