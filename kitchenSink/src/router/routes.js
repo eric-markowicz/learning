@@ -38,6 +38,10 @@ const routes = [
       {
         path: '/connection',
         component: () => import('pages/connection')
+      },
+      {
+        path: '/map',
+        component: () => import('pages/map')
       }
     ]
   },

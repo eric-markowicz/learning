@@ -31,7 +31,7 @@ export default {
         'message: ' + error.message + '\n')
     },
     getLocation () {
-      navigator.geolocation.getCurrentPosition(this.onSuccess, this.onError, { enableHighAccuracy: false })
+      navigator.geolocation.getCurrentPosition(this.onSuccess, this.onError, { enableHighAccuracy: true })
     }
   }
 }
