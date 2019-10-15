@@ -19,7 +19,7 @@ export default {
       msg: 'Click button to see GPS coordinates'
     }
   },
-
+  // API_MAP_KEY='AIzaSyBgt1gpk9WBxNjjD22___q7z_KJ1f1ZGBw'
   methods: {
     onSuccess (position) {
       var Latitude = position.coords.latitude
@@ -31,7 +31,7 @@ export default {
         'message: ' + error.message + '\n')
     },
     getLocation () {
-      navigator.geolocation.getCurrentPosition(this.onSuccess, this.onError, { enableHighAccuracy: true })
+      navigator.geolocation.getCurrentPosition(this.onSuccess, this.onError, { enableHighAccuracy: false })
     }
   }
 }

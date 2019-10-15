@@ -1,10 +1,11 @@
 {
-  "name": "dir",
+  "name": "kitchensink",
   "version": "0.0.1",
-  "description": "does things",
-  "productName": "s",
+  "description": "Dev testing",
+  "productName": "kitchenapp",
   "cordovaId": "org.cordova.quasar.app",
-  "author": "Eric",
+  "capacitorId": "",
+  "author": "Eric Markowicz",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
@@ -14,20 +15,12 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.18.1",
     "quasar": "^1.0.0",
-    "router": "^1.3.3",
-    "vue-i18n": "^8.0.0",
-    "vue-ics": "^0.1.2",
-    "vue-image-upload-resize": "^2.1.1",
-    "vue-web-cam": "^1.8.0",
-    "vuelidate": "^0.7.4",
-    "vuex": "^3.1.1"
+    "vue-i18n": "^8.0.0"
   },
   "devDependencies": {
     "@quasar/app": "^1.0.0",
-    "@quasar/quasar-app-extension-icon-genie": "^1.0.2",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
-    "dotenv": "^8.1.0",
     "eslint": "^5.10.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^5.0.0"
