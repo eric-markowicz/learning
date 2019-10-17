@@ -17,7 +17,7 @@
         </q-card-section>
         <q-separator dark ></q-separator>
         <q-card-actions>
-          <q-btn class="full-width" color="blue" @click="getLocation">Get location</q-btn>
+          <q-btn class="full-width" color="blue" @click="getLocation" icon="my_location">Get location</q-btn>
         </q-card-actions>
     </q-card>
       </div>
