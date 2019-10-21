@@ -10,10 +10,10 @@
           icon="menu"
           aria-label="Menu"
         />
-
         <q-toolbar-title class="text-center">
           KitchenSink
         </q-toolbar-title>
+      <connection></connection>
       </q-toolbar>
     </q-header>
 
@@ -121,6 +121,7 @@
 </template>
 
 <script>
+import connection from '/Users/ericmarkowicz/Documents/quasar_files/learning/kitchenSink/src/components/connection.vue'
 export default {
   name: 'MyLayout',
 
@@ -128,6 +129,9 @@ export default {
     return {
       leftDrawerOpen: false
     }
+  },
+  components: {
+    connection
   }
 }
 </script>

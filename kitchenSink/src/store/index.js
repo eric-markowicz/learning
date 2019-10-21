@@ -84,7 +84,7 @@ export default function (/* { ssrContext } */) {
       login ({ commit }, user) {
         return new Promise((resolve, reject) => {
           commit('auth_request')
-          axios({ url: 'Login', data: user, method: 'POST' })
+          axios({ url: 'http://localhost:3000/posts', data: user, method: 'POST', headers: { 'Authorization': user } })
             .then(resp => {
               const token = resp.data.token
               const user = resp.data.user
@@ -92,6 +92,7 @@ export default function (/* { ssrContext } */) {
               axios.defaults.headers.common['Authorization'] = token
               commit('auth_success', token, user)
               resolve(resp)
+              console.log(resp)
             })
             .catch(err => {
               commit('auth_error')

@@ -1,31 +1,96 @@
 <template>
   <q-page padding>
-   <div id="tui-image-editor" style="height: 800px">
-     <canvas></canvas>
-   </div>
+    <input type="file" ref="fileInput" @change="setImg" hidden />
+    <div @click="triggerImg" class="triggerImg">
+      <q-btn label="Choose image to edit" icon="add" color="blue"></q-btn>
+    </div>
+    <q-btn-group edit>
+      <div><q-btn edit color="blue" @click="draw" :hidden="noPhoto" icon="edit" :label="drawingStatus ? 'Disable Drawing' : 'Enable Drawing'"></q-btn></div>
+      <div><q-btn edit color="blue" @click="circle" :hidden="noPhoto" icon="radio_button_unchecked">Add Circle</q-btn></div>
+      <div><q-btn edit color="blue" @click="text" :hidden="noPhoto" icon="text_format">Add Text</q-btn></div>
+      <div><q-btn edit color="blue" @click="savePhoto" :hidden="noPhoto" icon="save">Save Photo</q-btn></div>
+      <div><q-btn edit color="blue" @click="clearPhoto" :hidden="noPhoto" icon="delete">Delete Photo</q-btn></div>
+    </q-btn-group>
+    <canvas id="myCanvas" width="0" height="0"></canvas>
   </q-page>
 </template>
 
 <script>
-var ImageEditor = require('tui-image-editor')
-var instance = new ImageEditor(document.querySelector('#tui-image-editor'), {
-  cssMaxWidth: 700,
-  cssMaxHeight: 500,
-  selectionStyle: {
-    cornerSize: 20,
-    rotatingPointOffset: 70
-  }
-})
-// Create image editor
-var imageEditor = new ImageEditor('#my-image-editor canvas', {
-  cssMaxWidth: 1000, // Component default value: 1000
-  cssMaxHeight: 800// Component default value: 800
-})
-
-// Load image
-imageEditor.loadImageFromURL('img/sampleImage.jpg', 'My sample image')
+import { fabric } from 'fabric'
+var FileSaver = require('file-saver')
 export default {
-  instance
-  // name: 'PageName',
+  data () {
+    return {
+      c: {},
+      noPhoto: true,
+      drawingStatus: false
+    }
+  },
+  mounted () {
+    this.c = new fabric.Canvas('myCanvas')
+  },
+  methods: {
+    drawingOff () {
+      this.c.isDrawingMode = false
+      this.drawingStatus = this.c.isDrawingMode
+      return this.c.isDrawingMode
+    },
+    drawingOn () {
+      this.c.isDrawingMode = true
+      this.drawingStatus = this.c.isDrawingMode
+      return this.c.isDrawingMode
+    },
+    triggerImg () {
+      this.$refs.fileInput.click()
+    },
+    setImg (file) {
+      var fileimg = file.target.files[0]
+      console.log(fileimg)
+      var reader = new FileReader()
+      console.log(reader)
+      reader.onload = f => {
+        var imgPath = f.target.result
+        fabric.Image.fromURL(imgPath, imgo => {
+          this.c.setDimensions({ width: imgo.width, height: imgo.height })
+          this.c.add(imgo.set({ selectable: false }))
+          console.log(this.imgo)
+        })
+      }
+      reader.readAsDataURL(fileimg)
+      this.noPhoto = false
+    },
+    savePhoto () {
+      this.drawingOff()
+      FileSaver.saveAs(this.c.toDataURL(), 'test.jpg')
+    },
+    clearPhoto () {
+      this.drawingOff()
+      this.c.clear()
+      this.noPhoto = true
+    },
+    draw () {
+      if (this.drawingStatus) {
+        this.drawingOff()
+      } else {
+        this.drawingOn()
+      }
+    },
+    text () {
+      this.drawingOff()
+      var string = new fabric.IText('', { left: 100, top: 100 })
+      this.c.add(string.enterEditing())
+      this.c.setActiveObject(string)
+    },
+    circle () {
+      this.drawingOff()
+      var circle = new fabric.Circle({
+        radius: 20,
+        fill: 'transparent',
+        stroke: 'red',
+        strokeWidth: 2
+      })
+      this.c.add(circle)
+    }
+  }
 }
 </script>

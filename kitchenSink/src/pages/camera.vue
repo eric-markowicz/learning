@@ -5,15 +5,15 @@
           <div><q-btn camera color="blue" @click="capture" :disable="!isActive" icon="camera">Capture</q-btn></div>
           <div><q-btn camera color="blue" @click="activate" :disable="isActive" icon="camera">Activate Camera</q-btn></div>
           <div><q-btn camera color="blue" @click="deactivate" :disable="!isActive" icon="camera">Deactivate Camera</q-btn></div>
-          <div><q-btn camera color="blue" @click="savePhoto" :disable="noPhoto" icon="save">Save Photo</q-btn></div>
-          <div><q-btn camera color="blue" @click="clearPhoto" :disable="noPhoto" icon="delete">Delete Photo</q-btn></div>
+          <div><q-btn camera color="blue" @click="savePhoto" :hidden="noPhoto" icon="save">Save Photo</q-btn></div>
+          <div><q-btn camera color="blue" @click="clearPhoto" :hidden="noPhoto" icon="delete">Delete Photo</q-btn></div>
         </q-btn-group>
         <br>
         <br>
         <q-btn-group edit>
-          <div><q-btn edit color="blue" @click="draw" :disable="noPhoto" icon="edit" :label="drawingStatus ? 'Disable Drawing' : 'Enable Drawing'"></q-btn></div>
-          <div><q-btn edit color="blue" @click="circle" :disable="noPhoto" icon="radio_button_unchecked">Add Circle</q-btn></div>
-          <div><q-btn edit color="blue" @click="text" :disable="noPhoto" icon="text_format">Add Text</q-btn></div>
+          <div><q-btn edit color="blue" @click="draw" :hidden="noPhoto" icon="edit" :label="drawingStatus ? 'Disable Drawing' : 'Enable Drawing'"></q-btn></div>
+          <div><q-btn edit color="blue" @click="circle" :hidden="noPhoto" icon="radio_button_unchecked">Add Circle</q-btn></div>
+          <div><q-btn edit color="blue" @click="text" :hidden="noPhoto" icon="text_format">Add Text</q-btn></div>
         </q-btn-group>
         <canvas id="myCanvas" width="0" height="0"></canvas>
     </div>

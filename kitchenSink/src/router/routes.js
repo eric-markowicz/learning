@@ -36,12 +36,12 @@ const routes = [
         component: () => import('pages/settings')
       },
       {
-        path: '/connection',
-        component: () => import('pages/connection')
-      },
-      {
         path: '/map',
         component: () => import('pages/map')
+      },
+      {
+        path: '/test',
+        component: () => import('pages/test')
       }
     ]
   },

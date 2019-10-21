@@ -1,8 +1,8 @@
 <template>
   <q-page padding>
    <p>{{ count }}</p>
-   <q-btn @click='increment'>+</q-btn>
-   <q-btn @click='decrement'>-</q-btn>
+   <q-btn color="blue" @click='increment'>+</q-btn>
+   <q-btn color="blue" @click='decrement'>-</q-btn>
    <br>
    <q-radio keep-color @input='colorSet' v-model="color" val="teal" label="Teal" color="teal" ></q-radio>
    <q-radio keep-color @input='colorSet' v-model="color" val="orange" label="Orange" color="orange" ></q-radio>
@@ -11,7 +11,7 @@
    <br>
    <p :class='textColor' style='font-size:26px'>This is a test</p>
    <br>
-   <q-btn @click='save'>Save settings</q-btn>
+   <q-btn @click='save' color="blue">Save settings</q-btn>
   </q-page>
 </template>
 

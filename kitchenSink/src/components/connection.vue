@@ -1,9 +1,9 @@
 <template>
-  <q-page padding>
+  <!--<q-page padding>
    <q-badge
      :label = "connectionStatus ? 'Connected' : 'Not Connected'"
      :color = "connectionStatus ? 'green' : 'red'">
-   </q-badge>
+   </q-badge>-->
    <q-chip
      :color = "connectionStatus ? 'green' : 'red'"
      text-color="white"
@@ -11,14 +11,15 @@
      <q-avatar :color = "connectionStatus ? 'green' : 'red'"
      text-color="white"
      icon="wifi"
-     size="50px"></q-avatar>
+     size="35px"></q-avatar>
    {{ connectionStatus ? 'Connected' : 'Not Connected' }}
    </q-chip>
-  </q-page>
+  <!--</q-page>-->
 </template>
 
 <script>
 export default {
+  name: 'connection',
   computed: {
     connectionStatus () {
       return this.$store.getters['connected']
