@@ -1,9 +1,4 @@
 <template>
-  <!--<q-page padding>
-   <q-badge
-     :label = "connectionStatus ? 'Connected' : 'Not Connected'"
-     :color = "connectionStatus ? 'green' : 'red'">
-   </q-badge>-->
    <q-chip
      :color = "connectionStatus ? 'green' : 'red'"
      text-color="white"
@@ -14,7 +9,6 @@
      size="35px"></q-avatar>
    {{ connectionStatus ? 'Connected' : 'Not Connected' }}
    </q-chip>
-  <!--</q-page>-->
 </template>
 
 <script>

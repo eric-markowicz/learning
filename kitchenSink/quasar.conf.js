@@ -74,7 +74,7 @@ module.exports = function (ctx) {
     devServer: {
       // https: true,
       // port: 8080,
-      open: "chrome"//true // opens browser window automatically
+      open: "google chrome"//true // opens browser window automatically
     },
 
     // animations: 'all', // --- includes all animations
@@ -131,6 +131,8 @@ module.exports = function (ctx) {
     cordova: {
       //id: 'org.cordova.quasar.app',
       // noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
+      iosStatusBarPadding: true,
+      backButtonExit: true
     },
 
     electron: {

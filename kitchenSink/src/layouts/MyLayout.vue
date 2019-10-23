@@ -23,7 +23,7 @@
       content-class="bg-grey-2"
     >
       <q-list>
-        <q-item clickable tag="a" href="http://localhost:8080/#/">
+        <q-item clickable tag="a" href="#/">
           <q-item-section avatar>
             <q-icon name="home" />
           </q-item-section>
@@ -31,7 +31,7 @@
             <q-item-label>Home</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" href="http://localhost:8080/#/editor">
+        <q-item clickable tag="a" href="#/editor">
           <q-item-section avatar>
             <q-icon name="edit" />
           </q-item-section>
@@ -39,7 +39,7 @@
             <q-item-label>Editor</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" href="http://localhost:8080/#/bluetooth">
+        <q-item clickable tag="a" href="#/bluetooth">
           <q-item-section avatar>
             <q-icon name="bluetooth" />
           </q-item-section>
@@ -47,23 +47,7 @@
             <q-item-label>Bluetooth</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" href="http://localhost:8080/#/connection">
-          <q-item-section avatar>
-            <q-icon name="wifi" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Connection</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" href="http://localhost:8080/#/fileUpload">
-          <q-item-section avatar>
-            <q-icon name="cloud_upload" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>File Upload</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" href="http://localhost:8080/#/Login">
+        <q-item clickable tag="a" href="#/Login">
           <q-item-section avatar>
             <q-icon name="work" />
           </q-item-section>
@@ -71,15 +55,7 @@
             <q-item-label>Login</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" href="http://localhost:8080/#/Register">
-          <q-item-section avatar>
-            <q-icon name="notes" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Register</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" href="http://localhost:8080/#/Settings">
+        <q-item clickable tag="a" href="#/Settings">
           <q-item-section avatar>
             <q-icon name="settings_applications" />
           </q-item-section>
@@ -87,7 +63,7 @@
             <q-item-label>Settings</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" href="http://localhost:8080/#/camera">
+        <q-item clickable tag="a" href="#/camera">
           <q-item-section avatar>
             <q-icon name="camera" />
           </q-item-section>
@@ -95,7 +71,7 @@
             <q-item-label>Camera</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" href="http://localhost:8080/#/dateTime">
+        <q-item clickable tag="a" href="#/dateTime">
           <q-item-section avatar>
             <q-icon name="calendar_today" />
           </q-item-section>
@@ -103,7 +79,7 @@
             <q-item-label>Calendar</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" href="http://localhost:8080/#/map">
+        <q-item clickable tag="a" href="#/map">
           <q-item-section avatar>
             <q-icon name="map" />
           </q-item-section>
