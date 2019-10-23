@@ -1,16 +1,16 @@
 <template>
   <div id="app" class="container">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css">
-    <div class="row">
-      <div class="col-md-9">
+    <!-- <div class="row"> -->
+     <!-- <div class="col-xs"> -->
         <div id="map" class="map">
             <l-map :zoom="zoom" :center="pos">
               <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
               <l-marker :lat-lng="pin"></l-marker>
             </l-map>
         </div>
-      </div>
-      <div class="col-md-3">
+      <!-- </div>
+      <div class="col-xs"> -->
       <q-card class="my-card bg-blue text-white">
         <q-card-section class="text-h6 text-weight-bold text-center">
           {{ msg }}
@@ -19,9 +19,9 @@
         <q-card-actions>
           <q-btn class="full-width" color="blue" @click="getLocation" icon="my_location">Get location</q-btn>
         </q-card-actions>
-    </q-card>
-      </div>
-    </div>
+      </q-card>
+      <!-- </div> -->
+    <!-- </div> -->
   </div>
 </template>
 
