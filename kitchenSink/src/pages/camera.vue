@@ -36,6 +36,7 @@ export default {
   mounted () {
     this.video = this.$refs.video
     this.c = new fabric.Canvas('myCanvas')
+    console.log(this.video)
   },
   methods: {
     drawingOff () {

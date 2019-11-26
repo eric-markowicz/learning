@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  <q-page>
     <input type="file" ref="fileInput" @change="setImg" hidden />
     <div @click="triggerImg" class="triggerImg">
       <q-btn label="Choose image to edit" icon="add" color="blue"></q-btn>
@@ -28,6 +28,7 @@ export default {
   },
   mounted () {
     this.c = new fabric.Canvas('myCanvas')
+    console.log(this.c)
   },
   methods: {
     drawingOff () {
@@ -42,6 +43,7 @@ export default {
     },
     triggerImg () {
       this.$refs.fileInput.click()
+      console.log(this.$refs.fileInput)
     },
     setImg (file) {
       var fileimg = file.target.files[0]
@@ -51,6 +53,8 @@ export default {
       reader.onload = f => {
         var imgPath = f.target.result
         fabric.Image.fromURL(imgPath, imgo => {
+          imgo.scaleToHeight(500)
+          imgo.scaleToWidth(500)
           this.c.setDimensions({ width: imgo.width, height: imgo.height })
           this.c.add(imgo.set({ selectable: false }))
           console.log(this.imgo)
@@ -59,10 +63,33 @@ export default {
       reader.readAsDataURL(fileimg)
       this.noPhoto = false
     },
+
     savePhoto () {
       this.drawingOff()
-      FileSaver.saveAs(this.c.toDataURL(), 'test.jpg')
+      if (window.device.platform === 'Android') {
+        this.androidSave()
+      } else {
+        this.pwaSave()
+      }
     },
+
+    pwaSave () {
+      FileSaver.saveAs(this.c.toDataURL(), 'test.jpg') // Save
+    },
+
+    androidSave () {
+      window.canvas2ImagePlugin.saveImageDataToLibrary(
+        function (msg) {
+          console.log(msg)// msg is the filename path (for android and iOS)
+        },
+        function (err) {
+          console.log(err)
+        },
+        document.getElementById('myCanvas'),
+        '.jpg' // File extension. File name is save as current date time
+      )
+    },
+
     clearPhoto () {
       this.drawingOff()
       this.c.clear()

@@ -1,6 +1,6 @@
 <template>
   <q-page class="container">
-    <div class="row items-center justify-center" style="height: 80vh">
+    <!-- <div class="row items-center justify-center" style="height: 80vh"> -->
       <div class="col-10 text-center">
         <div class="text-h6 text-negative" v-if="!enableBluetooth">Your browser does not support the bluetooth API</div>
         <q-btn
@@ -12,7 +12,7 @@
           @click="bluetooth()"
           :disable="!enableBluetooth" />
       </div>
-    </div>
+    <!-- </div> -->
   </q-page>
 </template>
 

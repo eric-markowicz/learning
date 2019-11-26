@@ -59,7 +59,6 @@ export default {
   },
   data () {
     return {
-      splitterModel: 50,
       meeting: [],
       dateTime: formattedString,
       event: {
